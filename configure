@@ -11913,6 +11913,15 @@ $as_echo "#define STDC_HEADERS 1" >>confdefs.h
 
 fi
 
+case $host_cpu in
+i686*)
+ check_xmmintrin=
+ ;;
+*)
+ check_xmmintrin="xmmintrin.h"
+ ;;
+esac
+
 for ac_header in \
 		 errno.h \
 		 fcntl.h \
@@ -11922,7 +11931,7 @@ for ac_header in \
 		 sys/soundcard.h \
 		 sys/time.h \
 		 unistd.h \
-		 xmmintrin.h \
+		 $check_xmmintrin \
 		 linux/soundcard.h
 do :
   as_ac_Header=`$as_echo "ac_cv_header_$ac_header" | $as_tr_sh`
